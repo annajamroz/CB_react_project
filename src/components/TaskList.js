@@ -36,7 +36,7 @@ const TaskList = (props) => {
             {activeTasks} 
              __________________________________________________
             <h2>Zadania wykonane ({inactiveTasks.length})</h2>
-            {inactiveTasks}
+            {inactiveTasks.slice(0,5)}
         </div>
      );
 }
