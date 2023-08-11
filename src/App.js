@@ -63,6 +63,8 @@ class App extends React.Component {
       <AddTask/>
       __________________________________________________
       <TaskList tasks={this.state.tasks} delete={this.deleteTask} changeStatus={this.changeTaskStatus}/>
+      
+
       </div>
     )};
 }
