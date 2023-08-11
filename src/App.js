@@ -41,16 +41,17 @@ class App extends React.Component {
     tasks.forEach(task => {
       if(task.id === id){
         task.active = false
-        task.finishDate = new Date()
+        task.finishDate = new Date().toLocaleString()
+        console.log(task.finishDate)
       }
+      
     })
 
     this.setState({
       tasks
     })
 
-    console.log("działa?")
-    console.log(tasks.finishDate)
+  
    
 
   }
