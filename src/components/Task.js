@@ -1,4 +1,10 @@
-import React from 'react'
+import React from 'react';
+import "./Task.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faCheck} from '@fortawesome/free-solid-svg-icons';
+
+
+
 const Task = (props) => {
 
     // destrukturyzacja
@@ -7,23 +13,20 @@ const Task = (props) => {
    
      if (active){
         return(
-           <div>
-            <p>
-                {text} - do {date}   
-                <button onClick={() => props.changeStatus(id)}>Zrobione!</button>
-                <button onClick={() => props.delete(id)}>Usuń</button>
-            </p>
-            
+        <div className='task'>
+            <p>{text} - do {date}</p> 
+            <span >
+                <button onClick={() => props.changeStatus(id)}><FontAwesomeIcon icon={faCheck} /></button>
+                <button onClick={() => props.delete(id)}><FontAwesomeIcon icon={faTrash} /></button>
+            </span>
         </div>
      )} else {
         return(
-            <div>
-            <p>
-                {text} wykonano: {finishDate}   
-                <button onClick={() => props.changeStatus(id)}>Zrobione!</button>
-                <button onClick={() => props.delete(id)}>Usuń</button>
-            </p>
-            
+         <div className='task'>
+            <p>{text} wykonano: {finishDate} </p>  
+            <span>
+                <button onClick={() => props.delete(id)}><FontAwesomeIcon icon={faTrash} /></button> 
+            </span>
         </div> 
         )
      }
