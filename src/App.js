@@ -2,60 +2,22 @@ import "./App.css";
 import React from "react";
 import AddTask from "./components/AddTask";
 import TaskList from "./components/TaskList";
+import { deleteTasks, getTasks } from "./api/tasksAPI";
 
 class App extends React.Component {
   counter = 5;
 
   state = {
-    tasks: [
-      {
-        id: 0,
-        text: "zrobić aplikacje w React",
-        date: "2013-08-15",
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 1,
-        text: "Nauczyć się React",
-        date: "2013-08-30",
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 2,
-        text: "Projekt",
-        date: "2013-08-30",
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 3,
-        text: "Fryzjer",
-        date: "2013-08-30",
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 4,
-        text: "Basen",
-        date: "2013-08-30",
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 5,
-        text: "Basen",
-        date: "2013-08-30",
-        active: true,
-        finishDate: null,
-      },
-    ],
+    tasks: [],
   };
+
+  componentDidMount() {
+    getTasks().then((tasks) => this.setState({ tasks }));
+  }
+
   // usunięcie z listy wyżej elementu o id takim
-  deleteTask = (id) => {
-    let tasks = [...this.state.tasks];
-    tasks = tasks.filter((task) => task.id !== id);
+  handleDeleteTask = async (id) => {
+    const tasks = await deleteTasks(id, this.state.tasks);
     this.setState({
       tasks,
     });
@@ -100,7 +62,7 @@ class App extends React.Component {
         <AddTask add={this.addTask} />
         <TaskList
           tasks={this.state.tasks}
-          delete={this.deleteTask}
+          onDelete={this.handleDeleteTask}
           changeStatus={this.changeTaskStatus}
         />
       </div>

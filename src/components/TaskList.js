@@ -38,7 +38,7 @@ const TaskList = (props) => {
     <Task
       key={task.id}
       task={task}
-      delete={props.delete}
+      onDelete={props.onDelete}
       changeStatus={props.changeStatus}
     />
   ));
@@ -49,7 +49,7 @@ const TaskList = (props) => {
     <Task
       key={task.id}
       task={task}
-      delete={props.delete}
+      onDelete={props.onDelete}
       changeStatus={props.changeStatus}
     />
   ));

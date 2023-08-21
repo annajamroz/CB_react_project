@@ -3,9 +3,9 @@ import "./Task.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-const Task = (props) => {
+const Task = ({ task, onDelete, changeStatus }) => {
   // destrukturyzacja
-  const { text, date, id, active, finishDate } = props.task;
+  const { text, date, id, active, finishDate } = task;
 
   return (
     <div className="task">
@@ -15,11 +15,11 @@ const Task = (props) => {
       </p>
       <span>
         {active && (
-          <button onClick={() => props.changeStatus(id)}>
+          <button onClick={() => changeStatus(id)}>
             <FontAwesomeIcon icon={faCheck} />
           </button>
         )}
-        <button onClick={() => props.delete(id)}>
+        <button onClick={() => onDelete(id)}>
           <FontAwesomeIcon icon={faTrash} />
         </button>
       </span>
