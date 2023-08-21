@@ -1,33 +1,31 @@
 .addTask {
-    margin: 20px auto;
-   
-    border: 2px solid #1b263b;
-    border-radius: 20px;
-    width: 400px;
-    height: 150px;
-    background-color: #b8c0ff;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  margin: 20px auto;
 
+  border: 2px solid #1b263b;
+  border-radius: 20px;
+  width: 400px;
+  height: 150px;
+  background-color: #b8c0ff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
-button{
-    margin: auto
+button {
+  margin: auto;
 }
 
 input {
-    width: 200px;
-    height: 25px;
-    border:2px solid #1b263b; 
-    border-radius: 15px;
-    margin: 5px;
-    margin: auto;
+  width: 200px;
+  height: 25px;
+  border: 2px solid #1b263b;
+  border-radius: 15px;
+  margin: 5px;
+  margin: auto;
 }
 .addTaskButton {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid #1b263b;
-    margin: auto;
-
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #1b263b;
+  margin: auto;
 }
