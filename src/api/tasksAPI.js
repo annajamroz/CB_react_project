@@ -58,3 +58,22 @@ export async function deleteTasks(id, previousState) {
     }, 300);
   });
 }
+
+export async function changeTaskStatus(id, previousState) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(
+        previousState.map((task) => {
+          if (task.id === id) {
+            return {
+              ...task,
+              active: false,
+              finishDate: new Date().toLocaleString(),
+            };
+          }
+          return task;
+        }),
+      );
+    }, 300);
+  });
+}

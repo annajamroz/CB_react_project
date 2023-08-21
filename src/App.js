@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import AddTask from "./components/AddTask";
 import TaskList from "./components/TaskList";
-import { deleteTasks, getTasks } from "./api/tasksAPI";
+import { changeTaskStatus, deleteTasks, getTasks } from "./api/tasksAPI";
 
 class App extends React.Component {
   counter = 5;
@@ -23,16 +23,8 @@ class App extends React.Component {
     });
   };
   // zmiana statusu w zadaniach o id takich
-  changeTaskStatus = (id) => {
-    let tasks = [...this.state.tasks];
-    tasks.forEach((task) => {
-      if (task.id === id) {
-        task.active = false;
-        task.finishDate = new Date().toLocaleString();
-        console.log(task.finishDate);
-      }
-    });
-
+  handleChangeTaskStatus = async (id) => {
+    const tasks = await changeTaskStatus(id, this.state.tasks);
     this.setState({
       tasks,
     });
@@ -63,7 +55,7 @@ class App extends React.Component {
         <TaskList
           tasks={this.state.tasks}
           onDelete={this.handleDeleteTask}
-          changeStatus={this.changeTaskStatus}
+          changeStatus={this.handleChangeTaskStatus}
         />
       </div>
     );
